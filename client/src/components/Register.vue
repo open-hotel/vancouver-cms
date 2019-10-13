@@ -47,7 +47,7 @@
                         <v-col>
                             <v-select
                                 v-model="user.gender"
-                                :items="['Male', 'Female', 'None', 'Helicopter']"
+                                :items="genders"
                                 label="Gender"
                             />
                         </v-col>
@@ -100,7 +100,13 @@ export default {
                 birthday: null
             },
             isValid: true,
-            menu: null
+            menu: null,
+            genders: [
+                { text: 'Male', value: 'M' },
+                { text: 'Female', value: 'F' },
+                // { text: 'None', value: 'M' },
+                // { text: 'Helicopter', value: 'F' }
+            ]
         }
     },
     methods: {
@@ -108,10 +114,25 @@ export default {
             if (!this.$refs.form.validate()) {
                 return
             }
+            const { 
+                passwordConfirmation,
+                ...httpPayload
+            } = this.user
+            if (httpPayload.password !== passwordConfirmation) {
+                // TODO: better message technique
+                alert('Password must be equal to Password Confirmation')
+                return
+            }
+
             const apiUrl = process.env.VUE_APP_API_URL
-            fetch(`${apiUrl}/register`, {
+            fetch(`${apiUrl}/users`, {
                 method: 'POST',
-                body: this.user
+                body: JSON.stringify(httpPayload),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((response) => {
+                console.log('resposta', response)
             })
         }
     }
