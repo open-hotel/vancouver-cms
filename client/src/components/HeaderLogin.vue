@@ -3,7 +3,7 @@
         <v-row class="navbar">
             <v-col cols="2" class="nopadding">
                 <v-img src="@/assets/logo.jpeg" class="logo"></v-img>
-                <p class="title">Open Hotel</p>
+                <p class="header-title">Open Hotel</p>
             </v-col>
             <v-col class="nopadding" cols="6">
                 <v-row>
@@ -94,7 +94,7 @@ export default {
         display: block;
         margin: 0 auto;
     }
-    .title{
+    .header-title{
         font-size: 15px;
         font-family: 'Notable';
         text-align: center;

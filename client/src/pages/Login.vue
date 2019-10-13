@@ -19,8 +19,8 @@ export default {
         Register
     },
     methods:{
-        authUser(data){
-            console.log(data);
+        authUser(){
+            // console.log(data);
         }
     }
 }
@@ -31,7 +31,7 @@ export default {
         background: url('/background.png');
         height: 100vh;
         padding: 0;
-        font-family: 'Comfortaa';
+        font-family: 'Ubuntu';
     }
     .header-login{
         position: absolute;

@@ -1,17 +1,22 @@
 <template>
-  <router-view/>
+  <v-app>
+    <v-content>
+      <router-view/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
+import './css/main.css'
 export default {
   name: 'App',
 };
 </script>
 
-
 <style>
- body{
+ body, html {
    margin: 0;
+   overflow: hidden!important;
  }
 
 </style>
