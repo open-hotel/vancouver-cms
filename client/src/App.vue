@@ -16,7 +16,8 @@ export default {
 <style>
  body, html {
    margin: 0;
-   overflow: hidden!important;
+   overflow-y: auto!important;
+   overflow-x: hidden!important;
  }
 
 </style>
